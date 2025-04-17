@@ -1,16 +1,11 @@
 "use client";
 import Link from "next/link";
-import FenceIcon from '@mui/icons-material/Fence';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
-import CameraOutdoorIcon from '@mui/icons-material/CameraOutdoor';
-import SvgIcon from '@mui/material/SvgIcon';
-
+import Image from 'next/image';
 const items = [
-  { label: "Bramy", icon: <SvgIcon fontSize="large" className="!w-[10rem] !h-[3rem]"><FenceIcon /></SvgIcon>, status: "", color: "text-lime-400", "href": "/gates", isDisabled: false },
-  { label: "Gniazdka", icon: <SvgIcon fontSize="large" className="!w-[10rem] !h-[3rem]"><ElectricBoltIcon /></SvgIcon>, status: "", color: "text-cyan-400", "href": "/volts", isDisabled: true },
-  { label: "Kamery", icon: <SvgIcon fontSize="large" className="!w-[10rem] !h-[3rem]"><CameraOutdoorIcon /></SvgIcon>, status: "", color: "text-cyan-400", "href": "/cameras", isDisabled: true },
-  { label: "Alarm", icon: <SvgIcon fontSize="large" className="!w-[10rem] !h-[3rem]"><NotificationsActiveIcon /></SvgIcon>, status: "", color: "", "href": "/alarm", isDisabled: true },
+  { label: "Bramy", icon: "/assets/images/60_1.svg", status: "", color: "text-lime-400", "href": "/gates", isDisabled: false, style: {} },
+  { label: "Gniazdka", icon: "/assets/images/140.svg", status: "", color: "text-cyan-400", "href": "/volts", isDisabled: true, style: { filter: "invert(1)" } },
+  { label: "Kamery", icon: "/assets/images/60_1.svg", status: "", color: "text-cyan-400", "href": "/cameras", isDisabled: true, style: {} },
+  { label: "Alarm", icon: "/assets/images/236.svg", status: "", color: "", "href": "/alarm", isDisabled: true, style: { filter: "invert(1)" } },
 ];
 
 export default function Home() {
@@ -65,7 +60,7 @@ export default function Home() {
               }}
             >
               <div style={{ fontSize: "3rem", marginBottom: "0.5rem" }}>
-                {item.icon}
+                <Image width={100} height={100} src={item?.icon} alt="" style={item?.style} />
               </div>
               <div style={{ color: "#ec4899", fontSize: "1.125rem" }}>
                 {item.label}
